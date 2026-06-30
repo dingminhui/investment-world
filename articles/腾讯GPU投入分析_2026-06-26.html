@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾讯对GPU的庞大投入，收益远不如投入？ - 我的投资世界</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f7f7f7;
+            color: #333;
+            line-height: 1.9;
+        }
+        .header {
+            background: linear-gradient(135deg, #07C160 0%, #06AD56 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .header a:hover { opacity: 1; }
+        .header h1 {
+            font-family: "Noto Serif SC", serif;
+            font-size: 24px;
+            margin: 10px 0 4px;
+            font-weight: 700;
+        }
+        .header .subtitle { font-size: 14px; opacity: 0.8; }
+        .article-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #999;
+        }
+        .article-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            background: #e8f8ef;
+            color: #07C160;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .article-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: #222;
+            line-height: 1.4;
+            font-family: "Noto Serif SC", serif;
+        }
+        .article-body h3 {
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            color: #07C160;
+            font-weight: 600;
+            border-left: 4px solid #07C160;
+            padding-left: 12px;
+        }
+        .article-body h4 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+        .article-body p { margin-bottom: 12px; }
+        .article-body strong { color: #07C160; }
+        .article-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: 15px;
+        }
+        .article-body th {
+            background: #e8f8ef;
+            color: #07C160;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #d0efdd;
+        }
+        .article-body td {
+            border: 1px solid #eee;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .article-body tr:hover { background: #fafafa; }
+        .back-link {
+            display: inline-block;
+            margin: 30px auto 0;
+            padding: 10px 24px;
+            background: white;
+            color: #07C160;
+            border: 2px solid #07C160;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: #07C160;
+            color: white;
+        }
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../我的投资世界.html">← 返回首页</a>
+        <h1>我的投资世界</h1>
+        <div class="subtitle">价值投资思考笔记 · 持续更新中</div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-card">
+            <div class="article-meta">
+                <span>📅 2026-06-26</span>
+                <div class="article-tags">
+                    <span class="tag">#腾讯</span>
+                    <span class="tag">#GPU投入</span>
+                    <span class="tag">#AI商业化</span>
+                </div>
+            </div>
+            <div class="article-title">腾讯对GPU的庞大投入，收益远不如投入？</div>
+            <div class="article-body">
+                <h3>一、投入规模：两年砸了1500亿+</h3>
+                <p>• 2024年全年Capex：~760亿（GPU采购、IDC建设）</p>
+                <p>• 2025年全年Capex：792亿</p>
+                <p>• 2026年Q1 Capex：319亿（受供应限制，"想买但买不到"）</p>
+                <p>• 2025年AI产品研发费（混元+元宝）：180亿</p>
+                <p><strong>• 总投入（近2年）：~1830亿</strong></p>
+
+                <h3>二、这些钱变成了哪些"可见的生产力"？</h3>
+                <p><strong>1. 混元大模型</strong></p>
+                <p>• 技术实力：国内第一梯队（SuperCLUE评测基础模型国内第二）</p>
+                <p>• 商业化：主要是自用，对外API收入很小</p>
+                <p>• 混元3.0定价：1.2元/百万tokens输入（很便宜，说明在抢市场）</p>
+
+                <p><strong>2. 元宝AI</strong></p>
+                <p>• 月活：突破1亿（2025年春节后峰值）</p>
+                <p>• 但留存：补贴退坡后流量大幅下滑</p>
+                <p>• 商业化：几乎为零，还在烧钱拉用户</p>
+
+                <p><strong>3. WeLM（微信AI助手）</strong></p>
+                <p>• 目前灰度测试中，入驻微信联系人列表</p>
+                <p>• 商业化模式还没看清（可能走"智能体分发+小程序调用"）</p>
+
+                <h3>三、收益远不如投入，这是事实</h3>
+                <p>• 2024-2025年GPU相关Capex：~1550亿</p>
+                <p>• 2024-2025年AI产品研发费：~280亿</p>
+                <p>• <strong>总投入：~1830亿</strong></p>
+                <p>• 这些投入带来的直接收入贡献（可量化部分）：腾讯云AI相关收入估计几十亿级别（远低于1830亿）</p>
+
+                <h3>四、但腾讯的逻辑是"防守+长期"</h3>
+                <p><strong>防守逻辑（最重要）：</strong>微信+游戏是腾讯的两大底盘，如果AI时代掉队，这两个底盘会被颠覆。GPU投入是"保险"。</p>
+                <p><strong>长期商业化逻辑：</strong></p>
+                <p>• WeLM如果成功（微信AI助手），可能是下一个"微信支付"级别的机会</p>
+                <p>• 腾讯云AI能力：如果国内企业AI化加速，腾讯云是受益者</p>
+
+                <h3>五、智能体分发是什么？</h3>
+                <p><strong>具体场景：</strong>假设你现在想"订一张明天北京到上海的机票"</p>
+                <p>• <strong>没有AI助手的时代：</strong>你打开微信 → 搜索"机票" → 手动进入小程序 → 手动输入信息 → 手动选择 → 支付</p>
+                <p>• <strong>有微信AI助手（WeLM）的时代：</strong>你在微信里右键划出AI助手 → 说一句话："帮我订明天北京到上海的机票，下午的" → AI助手自动调用"机票预订智能体" → 返回2-3个选项让你确认 → 支付完成</p>
+                <p><strong>本质：</strong>微信AI助手成为了一个"超级入口"——用户不用自己去发现和使用各种小程序，AI助手根据用户意图，自动匹配并调用最合适的小程序（智能体）。</p>
+
+                <h3>六、结论</h3>
+                <p><strong>短期（1-2年）：</strong>收益远不如投入，这是事实。作为股东，你需要接受这笔投入会拖累自由现金流。</p>
+                <p><strong>长期（3-5年）：</strong>关键看WeLM能否成功。如果微信AI助手能跑通商业化（智能体分发+小程序调用+支付），这笔投入可能物超所值。</p>
+                <p><strong>巴菲特-芒格视角：</strong></p>
+                <p>• 芒格可能会说："腾讯在GPU上砸这么多钱，我不确定它能不能赚回来。但我知道，如果它不砸，它可能连赌的机会都没有。"</p>
+                <p>• 巴菲特可能会说："我更喜欢那些不需要持续投入巨资就能赚钱的公司。但如果你要投这种公司，至少要确保它的护城河足够宽。"</p>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 30px;">
+            <a href="../我的投资世界.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
