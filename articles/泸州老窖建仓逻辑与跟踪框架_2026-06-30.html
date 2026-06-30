@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泸州老窖建仓逻辑与跟踪框架</title>
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f7f7f7;
+            color: #333;
+            line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #A0522D 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 24px; margin-bottom: 10px; font-weight: 600; }
+        .header .meta { font-size: 14px; opacity: 0.9; }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px 60px;
+        }
+        .article-body {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .article-body h2 {
+            font-size: 20px;
+            margin: 32px 0 16px;
+            color: #8B0000;
+            font-weight: 600;
+            border-left: 4px solid #8B0000;
+            padding-left: 12px;
+        }
+        .article-body h3 {
+            font-size: 17px;
+            margin: 24px 0 12px;
+            color: #333;
+            font-weight: 600;
+        }
+        .article-body p {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: #444;
+        }
+        .article-body .highlight {
+            background: #FFF8F0;
+            border-left: 4px solid #8B0000;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: #555;
+        }
+        .article-body .investor-note {
+            background: #F0F9FF;
+            border-left: 4px solid #07C160;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+        }
+        .article-body .investor-note strong { color: #07C160; }
+        .article-body ul, .article-body ol {
+            margin: 16px 0 16px 24px;
+            font-size: 15px;
+            color: #444;
+        }
+        .article-body li { margin-bottom: 8px; }
+        .article-body .dividend-box {
+            background: #FFF8F0;
+            border: 2px solid #8B0000;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .dividend-box h3 { color: #8B0000; margin-top: 0; }
+        .dividend-box .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .dividend-box .row:last-child { border-bottom: none; }
+        .dividend-box .label { color: #666; }
+        .dividend-box .value { font-weight: 600; color: #8B0000; }
+        .article-body .warning {
+            background: #FFF3F3;
+            border-left: 4px solid #FF4444;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            font-size: 14px;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 10px 20px;
+            background: #8B0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .back-link:hover { background: #6B0000; }
+        .tag {
+            display: inline-block;
+            background: #FFF8F0;
+            color: #8B0000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>泸州老窖建仓逻辑与跟踪框架</h1>
+    <div class="meta">用户建仓理由整理 · 2026年6月30日</div>
+</div>
+
+<div class="container">
+    <a href="../我的投资世界.html" class="back-link">← 返回「我的投资世界」</a>
+    
+    <div class="article-body">
+        
+        <div class="highlight">
+            <strong>📌 文章背景：</strong>这是用户（@慢一点_快一些）建仓泸州老窖的理由和观察点整理。核心逻辑是<strong>股息率驱动的价值投资</strong>——用三年分红承诺作为安全边际，用分红再买入降低持仓成本，长期持有获取稳定现金流。
+        </div>
+
+        <h2>一、建仓理由：三年分红承诺 + 成本摊薄逻辑</h2>
+
+        <div class="dividend-box">
+            <h3>📊 分红承诺与预期收益测算</h3>
+            <div class="row">
+                <span class="label">三年分红承诺（2024-2026年）</span>
+                <span class="value">不低于 85 亿元</span>
+            </div>
+            <div class="row">
+                <span class="label">2025年报每股分红</span>
+                <span class="value">4.417 元/股</span>
+            </div>
+            <div class="row">
+                <span class="label">2025年分红执行时间</span>
+                <span class="value">预计 2026年8月</span>
+            </div>
+            <div class="row">
+                <span class="label">2026年预计每股分红（根据承诺）</span>
+                <span class="value">约 5.775 元/股</span>
+            </div>
+            <div class="row">
+                <span class="label">当前股价（2026年6月）</span>
+                <span class="value">约 70 元+</span>
+            </div>
+            <div class="row" style="background: #FFF0F0; border-radius: 6px; padding: 12px; margin-top: 12px;">
+                <span class="label"><strong>建仓后14个月成本测算</strong></span>
+                <span class="value"><strong>70元 → 约60元</strong></span>
+            </div>
+            <div style="font-size: 13px; color: #888; margin-top: 12px;">
+                * 测算逻辑：在2025年分红（4.417元）前买入，获得分红后再买入，14个月后成本从70元摊薄至约60元。
+            </div>
+        </div>
+
+        <p><strong>用户的投资逻辑：</strong></p>
+        <ul>
+            <li><strong>三年分红承诺是"底线保障"</strong>——85亿元分红承诺，相当于每年约28亿元分红，以当前市值计算股息率约5-7%</li>
+            <li><strong>成本摊薄逻辑</strong>——用分红再买入，14个月后成本从70元降至60元，安全边际大幅提升</li>
+            <li><strong>长期持有心态</strong>——"未来十年哪怕每年只分个3-4元，我都满意这笔投资"</li>
+        </ul>
+
+        <div class="investor-note">
+            <strong>💡 投资视角：</strong>这是一个典型的<strong>"股息率驱动的价值投资"</strong>案例。用户不追求股价暴涨，而是用分红承诺作为安全边际，用分红再买入降低持仓成本，长期持有获取稳定现金流。这种策略适合：① 分红承诺可信；② 公司基本面稳定；③ 投资者有长期持有的耐心。
+        </div>
+
+        <h2>二、商业模式与护城河：简单说说</h2>
+
+        <p>用户说："泸州老窖的商业模式、公司质地等就不说了，很多大V都说得很好，理解得很深。"</p>
+
+        <p><strong>这里简单补充关键点：</strong></p>
+
+        <h3>1. 超级品牌与定价权</h3>
+        <ul>
+            <li><strong>国窖1573</strong>——高端白酒第一梯队（与飞天茅台、五粮液普五形成千元价格带三足鼎立）</li>
+            <li><strong>1573国宝窖池群</strong>——始建于明万历年间（1573年），连续使用450+年，是不可复制的酿造壁垒</li>
+            <li><strong>定价权</strong>——但短期主动控货、渠道库存高企，说明定价权正受行业周期考验</li>
+        </ul>
+
+        <h3>2. 财务安全垫</h3>
+        <ul>
+            <li><strong>先款后货模式</strong>——预付款模式，现金流充沛</li>
+            <li><strong>270亿+货币资金</strong>——账面现金充裕</li>
+            <li><strong>低负债率</strong>——财务稳健</li>
+        </ul>
+
+        <h3>3. 当前困境</h3>
+        <ul>
+            <li><strong>2025年及2026Q1业绩双位数下滑</strong>——但这是"主动控货保价"，而非需求崩塌</li>
+            <li><strong>渠道库存高企</strong>——需要验证后续是否去化</li>
+            <li><strong>28度高光新品与年轻化布局</strong>——是长期看点，但短期贡献有限</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ 注意：</strong>泸州老窖当前面临行业周期下行 + 渠道库存高企的双重压力。虽然"主动控货保价"说明管理层有定力，但<strong>需验证后续营收降幅是否收窄、毛利率是否企稳、渠道库存是否去化</strong>。
+        </div>
+
+        <h2>三、投资逻辑验证框架</h2>
+
+        <p>用户提出了一个<strong>非常清晰的投资逻辑验证框架</strong>：</p>
+
+        <h3>1. 超级品牌与定价权验证</h3>
+        <ul>
+            <li><strong>国窖1573批价是否稳定？</strong>——这是定价权的最直接验证</li>
+            <li><strong>千元价格带市占率是否稳住？</strong>——与茅台、五粮液的竞争态势</li>
+            <li><strong>渠道库存是否去化？</strong>——库存高企是最大隐患</li>
+        </ul>
+
+        <h3>2. 安全边际验证</h3>
+        <ul>
+            <li><strong>当前TTM PE约12.6倍、PB约2.4倍、股息率约5.1%–6.7%</strong>——均处于历史极低区间</li>
+            <li><strong>三年分红承诺是否兑现？</strong>——2026年分红是否达到预计的5.775元/股？</li>
+            <li><strong>270亿+货币资金是否真实？</strong>——财报披露的货币资金是否可验证？</li>
+        </ul>
+
+        <h3>3. 成长性验证</h3>
+        <ul>
+            <li><strong>28度高光新品是否起量？</strong>——年轻化布局的落地情况</li>
+            <li><strong>系列酒/低度酒能否形成第二曲线？</strong>——除了国窖1573，是否有其他增长引擎？</li>
+        </ul>
+
+        <h2>四、核心关注点（后续跟踪方向）</h2>
+
+        <div class="investor-note">
+            <strong>📅 近期关键节点：</strong>
+            <ul>
+                <li><strong>2026年6月30日股东大会</strong>——关注管理层对行业周期的判断、分红承诺的兑现进度、渠道库存去化情况</li>
+                <li><strong>2026年8月左右</strong>——2025年分红执行（预计每股4.417元）</li>
+                <li><strong>2026年10月底</strong>——2026年三季报，验证营收降幅是否收窄</li>
+                <li><strong>2027年4月底</strong>——2026年年报 + 2026年分红方案，验证是否达到预计的5.775元/股</li>
+            </ul>
+        </div>
+
+        <h2>五、与茅台的对比：为什么同时持有？</h2>
+
+        <p>用户持有<strong>贵州茅台</strong>（18%仓位，18万元）和<strong>泸州老窖</strong>（12%仓位，12万元）——为什么同时持有两只高端白酒股？</p>
+
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+            <tr style="background: #8B0000; color: white;">
+                <th style="padding: 10px; text-align: left;">维度</th>
+                <th style="padding: 10px; text-align: left;">贵州茅台</th>
+                <th style="padding: 10px; text-align: left;">泸州老窖</th>
+            </tr>
+            <tr style="background: #fff;">
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">品牌地位</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">超高端（飞天茅台独占2000+元价格带）</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">高端（国窖1573在千元价格带三足鼎立）</td>
+            </tr>
+            <tr style="background: #f9f9f9;">
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">定价权</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">最强（批价-出厂价价差约45%）</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">较强（但受行业周期考验）</td>
+            </tr>
+            <tr style="background: #fff;">
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">股息率</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">约1.5-2%（分红率较低）</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">约5-7%（三年分红承诺，股息率更高）</td>
+            </tr>
+            <tr style="background: #f9f9f9;">
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"> current valuation</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">PE约25-30倍（溢价较高）</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">TTM PE约12.6倍（历史极低区间）</td>
+            </tr>
+            <tr style="background: #fff;">
+                <td style="padding: 10px;">投资逻辑</td>
+                <td style="padding: 10px;">长期持有，享受品牌溢价 + 提价权</td>
+                <td style="padding: 10px;">股息率驱动，用分红再买入摊薄成本</td>
+            </tr>
+        </table>
+
+        <p><strong>结论：</strong>茅台和泸州老窖是<strong>互补而非替代</strong>的关系。茅台是"品牌溢价 + 提价权"逻辑，泸州老窖是"股息率 + 低估值"逻辑。同时持有可以：① 分散单一白酒股风险；② 享受不同成长阶段的收益（茅台成熟，泸州老窖有弹性）。</p>
+
+        <h2>六、风险提示</h2>
+
+        <div class="warning">
+            <strong>⚠️ 需要持续跟踪的风险信号：</strong>
+            <ul>
+                <li><strong>行业周期风险</strong>——如果高端白酒需求持续下滑，泸州老窖的定价权会被削弱</li>
+                <li><strong>分红承诺风险</strong>——如果公司业绩持续下滑，三年分红承诺是否还能兑现？</li>
+                <li><strong>渠道库存风险</strong>——如果库存去化不及预期，会影响后续营收和分红</li>
+                <li><strong>管理层风险</strong>——2026年6月30日股东大会，关注管理层是否稳定、战略是否清晰</li>
+            </ul>
+        </div>
+
+        <h2>七、一句话总结</h2>
+
+        <div class="highlight">
+            <strong>泸州老窖的投资逻辑：</strong>用<strong>三年分红承诺作为安全边际</strong>，用<strong>分红再买入摊薄成本</strong>，长期持有获取稳定现金流。当前估值处于历史极低区间（TTM PE约12.6倍、股息率约5-7%），但需验证<strong>渠道库存去化、批价稳定、分红承诺兑现</strong>三大信号。2026年6月30日股东大会是近期最重要的验证节点。
+        </div>
+
+        <div class="investor-note">
+            <strong>📌 后续跟踪方向：</strong>
+            <ul>
+                <li>短期：2026年6月30日股东大会指引、2026年8月分红执行</li>
+                <li>中期：2026年三季报（营收降幅是否收窄）、2026年年报（分红是否兑现）</li>
+                <li>长期：国窖1573批价是否稳定、28度高光新品是否起量、系列酒/低度酒能否形成第二曲线</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 14px;">
+            <p>📅 文章整理日期：2026年6月30日</p>
+            <p>🏷️ 标签：<span class="tag">#泸州老窖</span><span class="tag">#股息率投资</span><span class="tag">#分红承诺</span><span class="tag">#成本摊薄</span><span class="tag">#高端白酒</span></p>
+            <p>📊 关键数据：三年分红承诺≥85亿、2025年每股分红4.417元、2026年预计每股分红5.775元、当前股价约70元、14个月成本摊薄至约60元</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    我的投资世界 · 价值投资思考笔记<br>
+    —— 持续更新中 ——
+</div>
+
+</body>
+</html>
