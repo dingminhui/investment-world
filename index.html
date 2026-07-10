@@ -688,5 +688,24 @@
 
 <!-- GoatCounter 访问统计 -->
 <script data-goatcounter="https://investworld.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- 公开访客计数器（GoatCounter，全站累计） -->
+    <div id="visitor-counter" style="text-align:center;margin:30px 0 14px;padding:10px;color:#7a8a7a;font-size:13px;background:#f6faf6;border-top:1px solid #e8f0e8;border-bottom:1px solid #e8f0e8;">
+        📊 全站累计访问 <b id="vc-views" style="color:#2e7d32;">…</b> 次 · 独立访客 <b id="vc-uniq" style="color:#2e7d32;">…</b> 人
+        <div style="margin-top:4px;font-size:11px;color:#aab;">数据来自 GoatCounter · 约每4小时刷新一次</div>
+    </div>
+    <script>
+      (function(){
+        var url='https://investworld.goatcounter.com/counter/TOTAL.json';
+        fetch(url,{cache:'no-store'})
+          .then(function(r){return r.json();})
+          .then(function(d){
+            var v=document.getElementById('vc-views'), u=document.getElementById('vc-uniq');
+            if(v) v.textContent=Number(d.count||0).toLocaleString();
+            if(u) u.textContent=Number(d.count_unique||0).toLocaleString();
+          })
+          .catch(function(){});
+      })();
+    </script>
 </body>
 </html>
