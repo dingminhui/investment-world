@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾讯Hy3：小参数大能力——底层技术拆解与对持仓的含义 - 我的投资世界</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f7f7f7;
+            color: #333;
+            line-height: 1.9;
+        }
+        .header {
+            background: linear-gradient(135deg, #07C160 0%, #06AD56 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .header a:hover { opacity: 1; }
+        .header h1 {
+            font-family: "Noto Serif SC", serif;
+            font-size: 24px;
+            margin: 10px 0 4px;
+            font-weight: 700;
+        }
+        .header .subtitle { font-size: 14px; opacity: 0.8; }
+        .article-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #999;
+        }
+        .article-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            background: #e8f8ef;
+            color: #07C160;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .article-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: #222;
+            line-height: 1.4;
+            font-family: "Noto Serif SC", serif;
+        }
+        .article-body h3 {
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            color: #07C160;
+            font-weight: 600;
+            border-left: 4px solid #07C160;
+            padding-left: 12px;
+        }
+        .article-body h4 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+        .article-body p { margin-bottom: 12px; }
+        .article-body strong { color: #07C160; }
+        .article-body blockquote {
+            margin: 18px 0;
+            padding: 14px 18px;
+            background: #f4fbf7;
+            border-left: 4px solid #07C160;
+            border-radius: 6px;
+            color: #444;
+            font-style: normal;
+        }
+        .article-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: 15px;
+        }
+        .article-body th {
+            background: #e8f8ef;
+            color: #07C160;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #d0efdd;
+        }
+        .article-body td {
+            border: 1px solid #eee;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .article-body tr:hover { background: #fafafa; }
+        .note {
+            margin: 18px 0;
+            padding: 14px 18px;
+            background: #fff8e6;
+            border-left: 4px solid #f0a500;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #6b5500;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 30px auto 0;
+            padding: 10px 24px;
+            background: white;
+            color: #07C160;
+            border: 2px solid #07C160;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: #07C160;
+            color: white;
+        }
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../我的投资世界.html">← 返回首页</a>
+        <h1>我的投资世界</h1>
+        <div class="subtitle">价值投资思考笔记 · 持续更新中</div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-card">
+            <div class="article-meta">
+                <span>📅 2026-07-12</span>
+                <div class="article-tags">
+                    <span class="tag">#腾讯</span>
+                    <span class="tag">#混元Hy3</span>
+                    <span class="tag">#MoE架构</span>
+                    <span class="tag">#AI护城河</span>
+                </div>
+            </div>
+            <div class="article-title">腾讯Hy3：小参数大能力——底层技术拆解与对持仓的含义</div>
+            <div class="article-body">
+                <blockquote>背景：市场评价称，Hy3 正式版相比2个月前的 preview 参数规模完全未变——总参数295B、激活仅21B，是国内外一线模型中最小的；但它在12项重点基准中7项进入主要对比模型前三，几乎在所有主要指标超过 DeepSeek V4 Pro，大部分指标超过 Seed2.1 Pro 与 Qwen3.7。本文拆解：腾讯如何用这么小的参数做到如此强的能力。</blockquote>
+
+                <h3>一句话答案</h3>
+                <p><strong>低成本靠 MoE（混合专家），强能力靠「后训练(RL) + 架构细节 + 真实场景数据闭环」三件套。</strong>参数规模两个多月没变却明显变强，恰恰证明真正拉开差距的不是参数，而是后面那些。</p>
+
+                <h3>一、295B / 21B 这个数字到底什么意思（低成本的根源）</h3>
+                <p>Hy3 是 <strong>MoE（混合专家）架构</strong>，规格来自腾讯混元团队官方文档（2026-07-06 发布，preview 为4月底，参数未改）：</p>
+                <table>
+                    <tr><th>维度</th><th>数值</th><th>含义</th></tr>
+                    <tr><td>总参数</td><td><strong>295B</strong></td><td>整个模型的"知识储备"</td></tr>
+                    <tr><td>激活参数</td><td><strong>21B</strong>（仅~7%）</td><td>每次推理实际参与计算的参数</td></tr>
+                    <tr><td>专家数</td><td>192个，Top-8激活</td><td>每道题只唤醒最相关的8个专家</td></tr>
+                    <tr><td>层数</td><td>80层</td><td>—</td></tr>
+                    <tr><td>注意力</td><td>GQA（64 Q头 / 仅8 KV头）</td><td>KV缓存极小 → 长上下文便宜</td></tr>
+                    <tr><td>上下文</td><td>256K</td><td>长文档 / 多轮 Agent</td></tr>
+                    <tr><td>MTP层</td><td>3.8B（多token预测）</td><td>推测解码 → 解码更快</td></tr>
+                    <tr><td>精度</td><td>BF16，附FP8量化版</td><td>8张H20即可部署</td></tr>
+                </table>
+                <p><strong>MoE 的核心思想：</strong>不是每个问题都需要全部知识。模型像一个192人的专家库，路由网络每次只叫醒最对口的8个人。所以——</p>
+                <blockquote>你付的是 <strong>21B 的电费，享受的是 295B 的服务</strong>。</blockquote>
+                <p>这就是"参数只有别人的1/3到1/5，推理成本却最低"的真相：<strong>295B 是存储，21B 才是算力开销</strong>。稠密（dense）模型每 token 要把全部参数跑一遍，而 Hy3 只跑 7%。</p>
+
+                <h3>二、但 MoE 解释不了"为什么能上桌吃饭"</h3>
+                <p>如果只靠 MoE，Hy3 应该只是"便宜的21B水平"。它能压着 DeepSeek V4 Pro、追平 Seed2.1 / Qwen3.7，靠的是另外三件事——而且官方文档把这点说得很直白：相比2个月前 preview，参数一字未改，改的全是后训练。</p>
+
+                <h4>1. 后训练 RL 放大 + 数据质量升级（最关键的一棒）</h4>
+                <p>官方原话："improved the quality and diversity of post-training data while <strong>scaling up RL training</strong>"。2024年以来，模型在真实任务上的能力跃升，主要不来自堆参数，来自强化学习（推理训练）。一个21B激活、但后训练充分的模型，可以打赢没做推理训练的大模型。</p>
+
+                <h4>2. 快慢思考融合</h4>
+                <p><code>reasoning_effort</code> 参数：简单问题默认 <code>no_think</code> 直接答（低延迟低费），数学/代码/复杂推理才拉到 <code>high</code> 启动深度思考链。<strong>只在需要时才付"思考"的成本</strong>——这是把 MoE 的"按需激活"思想从参数层面延伸到推理层面。</p>
+
+                <h4>3. 生产级可靠性（幻觉/工具调用/多轮）</h4>
+                <p>• 幻觉率 12.5% → <strong>5.4%</strong>，常识错误 25.4% → 12.7%（细粒度数据清洗 + "有依据才答、无依据明说、不编造"的训练约束）<br>
+                • 工具调用稳定性、错误自恢复、跨脚手架泛化（SWE-Bench Verified 不同脚手架方差 &lt;4%）<br>
+                • 多轮意图跟踪错误率 17.4% → 7.9%</p>
+                <p>这些东西<strong>不上排行榜，但决定一个模型能不能真正进产品</strong>。Hy3 明显是冲着"好用"而非"跑分"调的。</p>
+
+                <h3>三、一个必须说清楚的诚实点：1/5 这个数字有水分</h3>
+                <div class="note">
+                    <strong>提醒：</strong>你引用的对比是 Hy3 的 <strong>295B 总参数</strong> vs <strong>DeepSeek V4 Pro 1.6T、Qwen3.7 Max 1.2T 的总参数</strong>。问题在这里——那些"万亿级"模型，大概率本身也是 MoE。既然是 MoE，它们的"激活参数"远小于总参数（就像 Hy3 自己 295B 总 / 21B 激活）。
+                </div>
+                <p>所以——</p>
+                <p>• <strong>总参数 295B vs 1.6T 的"1/5"对比，是拿苹果的总重比橙子的总重</strong>；<br>
+                • 真正决定成本和单 token 能力的，是<strong>激活参数</strong>。如果对手激活参数也只有几十B，那 Hy3 的"效率优势"远没有5倍那么夸张；<br>
+                • 腾讯官方自己的措辞是"rivals flagship models with <strong>2-5x the parameters</strong>"——这个 2-5 倍是公允的（对稠密旗舰、或总参更大的 MoE 都成立）。</p>
+                <blockquote>准确说法：Hy3 用"modest 的总参 + 极小的激活 + 强后训练"，在<strong>实用任务</strong>上追平了激活参数可能并不比它大太多的更大模型。MoE 是前提，强后训练是临门一脚。</blockquote>
+
+                <h3>四、作为腾讯股东，这件事的真正含义</h3>
+                <p>这正好接上我们之前聊的"腾讯 GPU 投入产出"那条线：</p>
+                <p><strong>1. 21B 激活 = 推理成本 ≈ 21B 稠密模型</strong> → API 定价可以很低、同时还有毛利 → <strong>AI 是利润中心，不是纯成本黑洞</strong>。这正是当初判断"腾讯风险比 Meta 小"的底层支撑之一。</p>
+                <p><strong>2. 真正的护城河不是模型权重，是"生态数据闭环"</strong>。Hy3 由姚顺雨（首席AI科学家）主导、201天重建架构；接入元宝/ima/QQ浏览器/微信读书/腾讯游戏等50+产品团队，<strong>真实产品遥测反哺后训练</strong>。官方一句"用更小的参数量撬动更高的实用价值"，道尽的正是这条飞轮。</p>
+                <p><strong>3. 给你的投资提醒（也接"安全边际"那篇）</strong>：模型能力正在快速 commoditize（Hy3 本身 Apache 2.0 开源免费商用）。值得长期下注的，不是"混元比别人强多少"，而是<strong>微信/元宝/ima 的分发霸权 + 场景数据 + Agent 产品化能力</strong>。权重会贬值，闭环不会。</p>
+
+                <h3>五、小结</h3>
+                <p>Hy3 用"小参数 + 强后训练"证明了一件事：<strong>在模型能力上，工程与数据闭环的杠杆，已经压过了堆参数的杠杆</strong>。对腾讯股东而言，这降低了 AI 军备竞赛的边际成本，同时把胜负手从"谁模型大"转向"谁的生态能把模型用起来"。这和我们之前对腾讯 GPU 投入的判断方向一致——关键不在投入规模，在投入能否通过微信/元宝/ima 的闭环转化为可持续的差异化能力。</p>
+
+                <div class="note" style="background:#f4fbf7;border-left-color:#07C160;color:#3a6b52;">
+                    <strong>资料来源：</strong>腾讯混元团队官方文档（cnb.cool / ModelScope / cloud.tencent，发布于2026-07-06）；"2-5x 参数"为官方表述。DeepSeek V4 Pro / Qwen3.7 Max 是否为 MoE 未单独核实，第三部分"万亿模型大概率也是 MoE"是基于行业惯例的推断。
+                </div>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 30px;">
+            <a href="../我的投资世界.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+
+<!-- GoatCounter 访问统计 -->
+<script data-goatcounter="https://investworld.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
