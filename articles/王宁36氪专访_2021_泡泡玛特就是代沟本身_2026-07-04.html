@@ -7,29 +7,40 @@
     <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#6a3b7a}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;color:var(--ink);font-weight:700}
+h2{font-size:21px;margin:42px 0 16px;border-left:3px solid var(--accent);padding-left:14px;letter-spacing:.5px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 12px;font-weight:600}
+h4{font-size:15px;margin:20px 0 10px;font-weight:600}
 .header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
 .header a:hover{color:var(--accent)}
 .header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
 .header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
 .header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.container{max-width:760px;margin:48px auto;padding:0 20px}
 .article-container{max-width:760px;margin:48px auto;padding:0 20px}
-.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.03);margin-bottom:24px}
+.article-meta,.meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
 .article-tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
-.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
-.article-body p{margin-bottom:14px;color:#3a3a3a}
-.article-body strong{color:var(--accent);font-weight:600}
-.article-body ul,.article-body ol{margin:10px 0 16px 22px}
-.article-body li{margin-bottom:8px}
-.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
-.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
-.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
-.article-body tr:hover{background:var(--paper)}
+.article-title{font-size:25px;font-weight:700;margin-bottom:24px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body,.a-body{font-size:15px;color:#3a3a3a;line-height:1.85}
+.article-body h2,.a-body h2{font-size:21px;margin-top:36px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3,.a-body h3{font-size:17px;margin-top:26px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p,.a-body p{margin-bottom:14px}
+.article-body strong,.a-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol,.a-body ul,.a-body ol{margin:10px 0 16px 22px}
+.article-body li,.a-body li{margin-bottom:8px}
+.article-body blockquote,.a-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table,.a-body table,.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th,.a-body th,.data-table th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td,.a-body td,.data-table td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover,.a-body tr:hover,.data-table tr:hover{background:var(--paper)}
+.section-title{font-size:21px;margin:36px 0 16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px;line-height:1.4}
+.sub-title{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.a-title{font-size:19px;font-weight:700;margin:18px 0 8px;color:var(--ink);font-family:"Noto Serif SC",serif;line-height:1.4}
+.a-source{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.highlight-green,.highlight-red{color:var(--accent);font-weight:600}
 .note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
 .timeline-log{margin:18px 0}
 .log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
@@ -40,7 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .text-center{text-align:center}
 .highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
 .footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
-@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
+@media(max-width:680px){.article-card{padding:24px 18px}.article-title{font-size:22px}.article-body h2,.a-body h2,.section-title{font-size:19px}.article-container,.container{margin:32px auto}}</style>
 </head>
 <body>
     <div class="container">
@@ -50,11 +61,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="article-info">
-            📌 <strong>背景说明：</strong>这是泡泡玛特2020年12月11日在香港上市后，王宁首次对外发声。当时外界对泡泡玛特的质疑与争议很大（"泡沫玛特"、"骗骗玛特"），王宁试图通过这篇访谈解释泡泡玛特崛起的原因，并回应外界质疑。
+            <strong>背景说明：</strong>这是泡泡玛特2020年12月11日在香港上市后，王宁首次对外发声。当时外界对泡泡玛特的质疑与争议很大（"泡沫玛特"、"骗骗玛特"），王宁试图通过这篇访谈解释泡泡玛特崛起的原因，并回应外界质疑。
         </div>
 
         <div class="summary-box">
-            <h3>📖 文章导读（投资人必读）</h3>
+            <h3>文章导读（投资人必读）</h3>
             <p>这篇访谈是理解泡泡玛特<span class="highlight">上市后管理层心态</span>和<span class="highlight">商业模式本质</span>的最重要文献之一。王宁在访谈中回应了所有关键质疑（盲盒=赌博？市值1000亿港元是否合理？竞争对手能否复制？），并清晰阐述了泡泡玛特的<span class="highlight">护城河</span>和<span class="highlight">长期战略</span>。</p>
             <p><strong>核心价值：</strong>这是一篇"穿越代沟"的访谈——王宁试图让中年人理解年轻人，让资本市场理解泡泡玛特。作为投资者，这篇文章能帮你判断：<strong>王宁是不是一个清醒的管理者？泡泡玛特的商业模式是否经得起质疑？</strong></p>
         </div>
@@ -310,7 +321,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </table>
 
         <div class="investor-note">
-            <strong>🎯 核心结论：</strong>站在2026年回看，王宁在2021年的判断基本得到了验证。这说明：<br>
+            <strong>核心结论：</strong>站在2026年回看，王宁在2021年的判断基本得到了验证。这说明：<br>
             1. 王宁是一个<span class="highlight">有远见、且说到做到</span>的管理者；<br>
             2. 泡泡玛特的商业模式本质确实是"IP运营"，而非"盲盒营销"；<br>
             3. 但"隐形壁垒"（艺术家和IP的持续性）仍需持续跟踪——Labubu之后，下一个现象级IP是谁？
@@ -355,7 +366,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <h2>十、总结：这篇访谈对你的投资有什么用？</h2>
 
         <div class="summary-box">
-            <h3>🎯 三个核心启示</h3>
+            <h3>三个核心启示</h3>
             <p><strong>1. 理解"代沟"是理解泡泡玛特的前提。</strong><br>
             如果你用中年人的逻辑去分析泡泡玛特（"这东西有什么用？""年轻人为什么买？"），你永远理解不了。正确的方法是：去门店观察年轻人、买一个盲盒体验一下、看闲鱼上的用户讨论。</p>
             <p><strong>2. 王宁是一个"清醒的管理者"。</strong><br>
@@ -365,7 +376,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="investor-note">
-            <strong>📝 下一步行动建议：</strong><br>
+            <strong>下一步行动建议：</strong><br>
             1. <strong>持续跟踪王宁的公开访谈</strong>：看他的思路是否一致，是否保持"克制"和"长期主义"？<br>
             2. <strong>关注泡泡玛特的IP孵化进展</strong>：每年是否能推出1-2个现象级新IP？<br>
             3. <strong>观察"隐形壁垒"的变化</strong>：艺术家续约率、新签约艺术家质量、IP多元化程度。<br>
@@ -373,7 +384,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="footer">
-            <p>📌 文章整理自：36氪《对话王宁：泡泡玛特就是代沟本身》（2021年1月20日）</p>
+            <p>文章整理自：36氪《对话王宁：泡泡玛特就是代沟本身》（2021年1月20日）</p>
             <p>✏️ 整理加入"我的投资世界" | 泡泡玛特卡片 | 2026-07-04</p>
             <p><a href="../我的投资世界.html" style="color: #07c160; text-decoration: none;">← 返回首页</a></p>
         </div>

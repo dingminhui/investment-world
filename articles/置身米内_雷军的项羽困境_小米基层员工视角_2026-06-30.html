@@ -7,29 +7,40 @@
     <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#c2582a}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;color:var(--ink);font-weight:700}
+h2{font-size:21px;margin:42px 0 16px;border-left:3px solid var(--accent);padding-left:14px;letter-spacing:.5px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 12px;font-weight:600}
+h4{font-size:15px;margin:20px 0 10px;font-weight:600}
 .header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
 .header a:hover{color:var(--accent)}
 .header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
 .header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
 .header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.container{max-width:760px;margin:48px auto;padding:0 20px}
 .article-container{max-width:760px;margin:48px auto;padding:0 20px}
-.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.03);margin-bottom:24px}
+.article-meta,.meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
 .article-tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
-.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
-.article-body p{margin-bottom:14px;color:#3a3a3a}
-.article-body strong{color:var(--accent);font-weight:600}
-.article-body ul,.article-body ol{margin:10px 0 16px 22px}
-.article-body li{margin-bottom:8px}
-.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
-.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
-.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
-.article-body tr:hover{background:var(--paper)}
+.article-title{font-size:25px;font-weight:700;margin-bottom:24px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body,.a-body{font-size:15px;color:#3a3a3a;line-height:1.85}
+.article-body h2,.a-body h2{font-size:21px;margin-top:36px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3,.a-body h3{font-size:17px;margin-top:26px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p,.a-body p{margin-bottom:14px}
+.article-body strong,.a-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol,.a-body ul,.a-body ol{margin:10px 0 16px 22px}
+.article-body li,.a-body li{margin-bottom:8px}
+.article-body blockquote,.a-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table,.a-body table,.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th,.a-body th,.data-table th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td,.a-body td,.data-table td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover,.a-body tr:hover,.data-table tr:hover{background:var(--paper)}
+.section-title{font-size:21px;margin:36px 0 16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px;line-height:1.4}
+.sub-title{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.a-title{font-size:19px;font-weight:700;margin:18px 0 8px;color:var(--ink);font-family:"Noto Serif SC",serif;line-height:1.4}
+.a-source{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.highlight-green,.highlight-red{color:var(--accent);font-weight:600}
 .note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
 .timeline-log{margin:18px 0}
 .log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
@@ -40,7 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .text-center{text-align:center}
 .highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
 .footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
-@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
+@media(max-width:680px){.article-card{padding:24px 18px}.article-title{font-size:22px}.article-body h2,.a-body h2,.section-title{font-size:19px}.article-container,.container{margin:32px auto}}</style>
 </head>
 <body>
 
@@ -55,7 +66,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
     <div class="article-body">
         
         <div class="highlight">
-            <strong>📌 文章背景：</strong>2026年6月24日，一篇发布在小米内网飞书上的离职长文开始疯狂传播。作者是2024届校招生，入职一年后离职。文章发布后即被小米紧急删除，但截图已在全网刷屏。这篇文章接续了《置身钉内》《置身团内》的"大厂离职檄文"传统，被称为《置身米内》。
+            <strong>文章背景：</strong>2026年6月24日，一篇发布在小米内网飞书上的离职长文开始疯狂传播。作者是2024届校招生，入职一年后离职。文章发布后即被小米紧急删除，但截图已在全网刷屏。这篇文章接续了《置身钉内》《置身团内》的"大厂离职檄文"传统，被称为《置身米内》。
         </div>
 
         <h2>一、作者的"惊天大误判"</h2>
@@ -75,7 +86,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </ul>
 
         <div class="investor-note">
-            <strong>💡 投资视角：</strong>这篇文章验证了市场对小米的最大担忧——<strong>SU7的成功能否真正带动手机高端化？</strong>目前来看，答案是否定的。汽车和手机是两个不同的心智战场，消费者的决策逻辑完全不同。
+            <strong>投资视角：</strong>这篇文章验证了市场对小米的最大担忧——<strong>SU7的成功能否真正带动手机高端化？</strong>目前来看，答案是否定的。汽车和手机是两个不同的心智战场，消费者的决策逻辑完全不同。
         </div>
 
         <h2>二、核心诊断：雷军的"项羽困境"</h2>
@@ -112,7 +123,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </ul>
 
         <div class="investor-note">
-            <strong>💡 投资视角：</strong>"战术大胜无法转化为战略优势"——这是对小米最精准的诊断。SU7爆火是战术大胜，但它没有转化为手机高端化的战略优势。这说明小米的品牌心智（"性价比"）已经固化，不是一两款爆品能改变的。
+            <strong>投资视角：</strong>"战术大胜无法转化为战略优势"——这是对小米最精准的诊断。SU7爆火是战术大胜，但它没有转化为手机高端化的战略优势。这说明小米的品牌心智（"性价比"）已经固化，不是一两款爆品能改变的。
         </div>
 
         <h2>三、人才梯队崩塌：校招的"性价比"陷阱</h2>
@@ -140,7 +151,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </ul>
 
         <div class="investor-note">
-            <strong>💡 投资视角：</strong>人才密度决定创新上限。如果小米留不住顶尖校招生，它的长期创新能力就会受限。这对投资者来说是一个<strong>长期风险信号</strong>——不是现在就能证伪的，但会在3-5年后体现出来。
+            <strong>投资视角：</strong>人才密度决定创新上限。如果小米留不住顶尖校招生，它的长期创新能力就会受限。这对投资者来说是一个<strong>长期风险信号</strong>——不是现在就能证伪的，但会在3-5年后体现出来。
         </div>
 
         <h2>四、2026年上半年的小米：多重危机叠加</h2>
@@ -180,7 +191,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <h3>3. 对你持仓决策的影响</h3>
 
         <div class="investor-note">
-            <strong>💡 结合你的持仓计划：</strong>
+            <strong>结合你的持仓计划：</strong>
             <ul>
                 <li>你在"100万建仓计划"中给小米分配了8%仓位（8万元）——<span class="warning">这篇文章是一个"警示信号"</span></li>
                 <li>建议：<strong>暂缓建仓小米，等更多数据验证</strong>（比如2026年Q2/Q3财报，看手机高端化是否有实质进展）</li>
@@ -195,7 +206,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="investor-note">
-            <strong>📌 后续跟踪方向：</strong>
+            <strong>后续跟踪方向：</strong>
             <ul>
                 <li>短期：2026年Q2/Q3财报，手机ASP（平均售价）是否持续提升</li>
                 <li>中期：小米18系列的市场反应、高端机型（4000元以上）销量占比</li>
@@ -205,8 +216,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 14px;">
-            <p>📅 文章整理日期：2026年6月30日</p>
-            <p>🏷️ 标签：#小米 #雷军 #项羽困境 #手机高端化 #人才流失 #基层员工视角</p>
+            <p>文章整理日期：2026年6月30日</p>
+            <p>标签：#小米 #雷军 #项羽困境 #手机高端化 #人才流失 #基层员工视角</p>
             <p>🔗 原文链接：https://mp.weixin.qq.com/s/vw4Hf4-JZNOywu-wIehCQA（已秒删，此为转载）</p>
         </div>
 

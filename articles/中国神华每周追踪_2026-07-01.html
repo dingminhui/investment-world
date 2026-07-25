@@ -9,29 +9,40 @@
     <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#4a4a4a}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;color:var(--ink);font-weight:700}
+h2{font-size:21px;margin:42px 0 16px;border-left:3px solid var(--accent);padding-left:14px;letter-spacing:.5px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 12px;font-weight:600}
+h4{font-size:15px;margin:20px 0 10px;font-weight:600}
 .header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
 .header a:hover{color:var(--accent)}
 .header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
 .header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
 .header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.container{max-width:760px;margin:48px auto;padding:0 20px}
 .article-container{max-width:760px;margin:48px auto;padding:0 20px}
-.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.03);margin-bottom:24px}
+.article-meta,.meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
 .article-tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
-.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
-.article-body p{margin-bottom:14px;color:#3a3a3a}
-.article-body strong{color:var(--accent);font-weight:600}
-.article-body ul,.article-body ol{margin:10px 0 16px 22px}
-.article-body li{margin-bottom:8px}
-.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
-.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
-.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
-.article-body tr:hover{background:var(--paper)}
+.article-title{font-size:25px;font-weight:700;margin-bottom:24px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body,.a-body{font-size:15px;color:#3a3a3a;line-height:1.85}
+.article-body h2,.a-body h2{font-size:21px;margin-top:36px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3,.a-body h3{font-size:17px;margin-top:26px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p,.a-body p{margin-bottom:14px}
+.article-body strong,.a-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol,.a-body ul,.a-body ol{margin:10px 0 16px 22px}
+.article-body li,.a-body li{margin-bottom:8px}
+.article-body blockquote,.a-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table,.a-body table,.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th,.a-body th,.data-table th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td,.a-body td,.data-table td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover,.a-body tr:hover,.data-table tr:hover{background:var(--paper)}
+.section-title{font-size:21px;margin:36px 0 16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px;line-height:1.4}
+.sub-title{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.a-title{font-size:19px;font-weight:700;margin:18px 0 8px;color:var(--ink);font-family:"Noto Serif SC",serif;line-height:1.4}
+.a-source{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.highlight-green,.highlight-red{color:var(--accent);font-weight:600}
 .note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
 .timeline-log{margin:18px 0}
 .log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
@@ -42,7 +53,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .text-center{text-align:center}
 .highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
 .footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
-@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
+@media(max-width:680px){.article-card{padding:24px 18px}.article-title{font-size:22px}.article-body h2,.a-body h2,.section-title{font-size:19px}.article-container,.container{margin:32px auto}}</style>
 </head>
 <body>
     <div class="header">
@@ -53,12 +64,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
     <div class="container">
         <div class="meta">
-            <span>📅 2026-07-01</span>
-            <span>🏢 中国神华（601088.SH）</span>
-            <span>🏷️ <span class="tag">#每周追踪</span><span class="tag">#煤炭价格</span><span class="tag">#资产注入</span><span class="tag">#分红进展</span></span>
+            <span>2026-07-01</span>
+            <span>中国神华（601088.SH）</span>
+            <span><span class="tag">#每周追踪</span><span class="tag">#煤炭价格</span><span class="tag">#资产注入</span><span class="tag">#分红进展</span></span>
         </div>
 
-        <div class="section-title">📊 本周核心数据（2026年5月运营数据）</div>
+        <div class="section-title">本周核心数据（2026年5月运营数据）</div>
 
         <div class="sub-title">煤炭产销</div>
         <table class="data-table">
@@ -110,7 +121,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
                 <td class="highlight-green">+8.3%</td>
             </tr>
         </table>
-        <p>📌 电力业务增速（8.4%）明显高于煤炭销量增速（3.3%），煤电一体化协同效应持续释放。煤价上涨反而利好自有煤电联营电厂（成本端可控，电价端传导）。</p>
+        <p>电力业务增速（8.4%）明显高于煤炭销量增速（3.3%），煤电一体化协同效应持续释放。煤价上涨反而利好自有煤电联营电厂（成本端可控，电价端传导）。</p>
 
         <div class="sub-title">运输业务</div>
         <table class="data-table">
@@ -131,7 +142,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <div class="section-title">⛏️ 煤炭价格动态</div>
 
         <div class="news-item">
-            <div class="news-date">📌 截至2026年6月中旬</div>
+            <div class="news-date">截至2026年6月中旬</div>
             <div class="news-title">动力煤价格强势：淡季不淡</div>
             <div class="news-body">
                 <p>秦皇岛港5500大卡动力煤现货价：<strong>865元/吨</strong>，同比涨约 <strong>40.88%</strong>。</p>
@@ -142,7 +153,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="news-item">
-            <div class="news-date">📌 政策层面</div>
+            <div class="news-date">政策层面</div>
             <div class="news-title">发改委强调迎峰度夏能源保供</div>
             <div class="news-body">
                 发改委6月18日发布会强调迎峰度夏能源保供，政策端以稳为主，无重大利空。需关注是否存在限价政策风险。
@@ -162,25 +173,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="news-item">
-            <div class="news-date">📌 2026-06-26 董事会公告</div>
+            <div class="news-date">2026-06-26 董事会公告</div>
             <div class="news-title">审计机构变更：验证资产注入协同效应的关键窗口</div>
             <div class="news-body">
                 <p>聘任 <strong>安永华明+安永</strong> 为2026年度审计机构，审计费用 <strong>1648万元/年</strong>，较上年增约29%。</p>
                 <p>费用上升原因：并购导致合并范围变化，核查工作量增加。</p>
-                <p>📌 <strong>协同效应验证期</strong>：Q2数据将是资产注入后首个完整季度的业绩验证，关注中报（预计8月）。</p>
+                <p><strong>协同效应验证期</strong>：Q2数据将是资产注入后首个完整季度的业绩验证，关注中报（预计8月）。</p>
             </div>
         </div>
 
         <div class="section-title">💰 分红实施进展</div>
 
         <div class="news-item">
-            <div class="news-date">📌 当前状态（2026-07-01）</div>
+            <div class="news-date">当前状态（2026-07-01）</div>
             <div class="news-title">2025年度分红待公告</div>
             <div class="news-body">
                 <p>2025年中期股息：10派9.8元（已实施，2025年11月完成）</p>
                 <p><strong>2025年度末期股息</strong>：尚未公告（通常在7-8月中报季一并公告）</p>
                 <p>历史参考：2024年度末期股息10派11.6元，2025年8月公告、10月派发。</p>
-                <p>📌 <strong>当前股息率估算</strong>：按当前A股价格约39.5元计算，若2025年全年分红维持10派20元水平，股息率约 <strong>5.1%</strong>。若煤价维持高位、业绩稳定增长，股息率有上行空间。</p>
+                <p><strong>当前股息率估算</strong>：按当前A股价格约39.5元计算，若2025年全年分红维持10派20元水平，股息率约 <strong>5.1%</strong>。若煤价维持高位、业绩稳定增长，股息率有上行空间。</p>
             </div>
         </div>
 
@@ -209,7 +220,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
             </tr>
         </table>
 
-        <div class="section-title">🔍 待讨论的关键问题</div>
+        <div class="section-title">待讨论的关键问题</div>
 
         <div class="discuss-box">
             <div class="title">💬 讨论议题</div>
@@ -222,7 +233,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
             </ul>
         </div>
 
-        <div class="section-title">📌 下周关注</div>
+        <div class="section-title">下周关注</div>
         <div class="news-item">
             <div class="news-body">
                 <p>1. <strong>7月迎峰度夏旺季数据</strong>：发电量能否加速？煤价能否再上台阶？</p>

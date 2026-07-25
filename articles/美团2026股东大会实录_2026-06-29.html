@@ -9,29 +9,40 @@
     <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#c2742a}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;color:var(--ink);font-weight:700}
+h2{font-size:21px;margin:42px 0 16px;border-left:3px solid var(--accent);padding-left:14px;letter-spacing:.5px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 12px;font-weight:600}
+h4{font-size:15px;margin:20px 0 10px;font-weight:600}
 .header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
 .header a:hover{color:var(--accent)}
 .header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
 .header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
 .header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.container{max-width:760px;margin:48px auto;padding:0 20px}
 .article-container{max-width:760px;margin:48px auto;padding:0 20px}
-.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.03);margin-bottom:24px}
+.article-meta,.meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
 .article-tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
-.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
-.article-body p{margin-bottom:14px;color:#3a3a3a}
-.article-body strong{color:var(--accent);font-weight:600}
-.article-body ul,.article-body ol{margin:10px 0 16px 22px}
-.article-body li{margin-bottom:8px}
-.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
-.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
-.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
-.article-body tr:hover{background:var(--paper)}
+.article-title{font-size:25px;font-weight:700;margin-bottom:24px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body,.a-body{font-size:15px;color:#3a3a3a;line-height:1.85}
+.article-body h2,.a-body h2{font-size:21px;margin-top:36px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3,.a-body h3{font-size:17px;margin-top:26px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p,.a-body p{margin-bottom:14px}
+.article-body strong,.a-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol,.a-body ul,.a-body ol{margin:10px 0 16px 22px}
+.article-body li,.a-body li{margin-bottom:8px}
+.article-body blockquote,.a-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table,.a-body table,.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th,.a-body th,.data-table th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td,.a-body td,.data-table td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover,.a-body tr:hover,.data-table tr:hover{background:var(--paper)}
+.section-title{font-size:21px;margin:36px 0 16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px;line-height:1.4}
+.sub-title{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.a-title{font-size:19px;font-weight:700;margin:18px 0 8px;color:var(--ink);font-family:"Noto Serif SC",serif;line-height:1.4}
+.a-source{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.highlight-green,.highlight-red{color:var(--accent);font-weight:600}
 .note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
 .timeline-log{margin:18px 0}
 .log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
@@ -42,7 +53,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .text-center{text-align:center}
 .highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
 .footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
-@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
+@media(max-width:680px){.article-card{padding:24px 18px}.article-title{font-size:22px}.article-body h2,.a-body h2,.section-title{font-size:19px}.article-container,.container{margin:32px auto}}</style>
 </head>
 <body>
     <div class="header">
@@ -54,7 +65,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
     <div class="container">
 
         <div class="summary-box">
-            <h3>📝 核心摘要</h3>
+            <h3>核心摘要</h3>
             <p>2026年6月26日，美团召开股东周年大会。王兴罕见低头认错，承认过去两年因外卖补贴大战错失出海、AI两大战略窗口期。2025年美团从盈利358亿转为净亏损234亿，核心本地商业从盈利524亿转为亏损69亿。王兴明确：股价被严重低估，将重启回购；手握650亿可变现投资资产；全面转向理性竞争+AI深耕。对投资者的核心启示：<span class="highlight">短期看行业竞争是否真回归理性，中期看UE转正拐点，长期看AI能否构建新护城河</span>。</p>
         </div>
 
@@ -302,7 +313,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
         <!-- 九、对投资者的的主要启发 -->
         <div class="section">
-            <div class="section-title">💡 九、对投资者的主要启发</div>
+            <div class="section-title">九、对投资者的主要启发</div>
 
             <div class="insight-box">
                 <h4>启发1：管理层坦诚度极高，这是巴菲特最看重的品质</h4>
@@ -339,34 +350,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
             <div class="card">
                 <h4>短期跟踪（2026年Q2-Q3）</h4>
                 <ul>
-                    <li>🔍 <strong>Q2外卖UE是否如期转正？</strong>（最重要验证点，决定盈利拐点是否到来）</li>
-                    <li>🔍 <strong>阿里/京东降补信号</strong>（淘宝闪购月度GTV、补贴力度变化）</li>
-                    <li>🔍 <strong>到店经营利润率是否企稳？</strong>（是否止住2025年Q4以来跌势）</li>
-                    <li>🔍 <strong>抖音本地生活月度亏损是否收窄？</strong>（决定抖音是否继续加码到店补贴）</li>
+                    <li><strong>Q2外卖UE是否如期转正？</strong>（最重要验证点，决定盈利拐点是否到来）</li>
+                    <li><strong>阿里/京东降补信号</strong>（淘宝闪购月度GTV、补贴力度变化）</li>
+                    <li><strong>到店经营利润率是否企稳？</strong>（是否止住2025年Q4以来跌势）</li>
+                    <li><strong>抖音本地生活月度亏损是否收窄？</strong>（决定抖音是否继续加码到店补贴）</li>
                 </ul>
             </div>
 
             <div class="card">
                 <h4>中期跟踪（2026年Q4 - 2027年）</h4>
                 <ul>
-                    <li>🔍 <strong>小象超市门店扩张进度 + UE数据</strong>（是否能成为第二增长曲线）</li>
-                    <li>🔍 <strong>快乐猴门店数量 + 单店模型</strong>（优选转型是否真能跑通）</li>
-                    <li>🔍 <strong>Keeta中东 + 巴西市场份额 + UE</strong>（出海能否真正盈利）</li>
-                    <li>🔍 <strong>650亿投资组合退出进度</strong>（智谱AI、宇树科技解禁后是否真的变现）</li>
+                    <li><strong>小象超市门店扩张进度 + UE数据</strong>（是否能成为第二增长曲线）</li>
+                    <li><strong>快乐猴门店数量 + 单店模型</strong>（优选转型是否真能跑通）</li>
+                    <li><strong>Keeta中东 + 巴西市场份额 + UE</strong>（出海能否真正盈利）</li>
+                    <li><strong>650亿投资组合退出进度</strong>（智谱AI、宇树科技解禁后是否真的变现）</li>
                 </ul>
             </div>
 
             <div class="card">
                 <h4>长期跟踪（2027年及以后）</h4>
                 <ul>
-                    <li>🔍 <strong>"小团"AI助手用户留存率</strong>（是否真的成为下一代服务入口）</li>
-                    <li>🔍 <strong>B端AI工具商家付费率</strong>（AI是否真的帮商家降本增效，并让美团分成）</li>
-                    <li>🔍 <strong>无人配送商业化进度</strong>（无人机、无人车是否真的降低履约成本）</li>
+                    <li><strong>"小团"AI助手用户留存率</strong>（是否真的成为下一代服务入口）</li>
+                    <li><strong>B端AI工具商家付费率</strong>（AI是否真的帮商家降本增效，并让美团分成）</li>
+                    <li><strong>无人配送商业化进度</strong>（无人机、无人车是否真的降低履约成本）</li>
                 </ul>
             </div>
 
             <div class="card" style="background: #e8f8ef; border: 1px solid #07C160;">
-                <h4 style="color: #07C160;">📌 你的美团建仓计划回顾</h4>
+                <h4 style="color: #07C160;">你的美团建仓计划回顾</h4>
                 <ul style="color: #333;">
                     <li><strong>目标建仓价：</strong>HK$80（当前HK$64，已接近目标区间）</li>
                     <li><strong>触发条件：</strong>Q2外卖UE转正 + 阿里/京东降补信号明确</li>

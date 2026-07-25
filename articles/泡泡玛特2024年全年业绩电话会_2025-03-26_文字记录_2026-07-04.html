@@ -7,29 +7,40 @@
     <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#6a3b7a}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;color:var(--ink);font-weight:700}
+h2{font-size:21px;margin:42px 0 16px;border-left:3px solid var(--accent);padding-left:14px;letter-spacing:.5px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 12px;font-weight:600}
+h4{font-size:15px;margin:20px 0 10px;font-weight:600}
 .header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
 .header a:hover{color:var(--accent)}
 .header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
 .header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
 .header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.container{max-width:760px;margin:48px auto;padding:0 20px}
 .article-container{max-width:760px;margin:48px auto;padding:0 20px}
-.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.03);margin-bottom:24px}
+.article-meta,.meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
 .article-tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
-.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
-.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
-.article-body p{margin-bottom:14px;color:#3a3a3a}
-.article-body strong{color:var(--accent);font-weight:600}
-.article-body ul,.article-body ol{margin:10px 0 16px 22px}
-.article-body li{margin-bottom:8px}
-.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
-.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
-.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
-.article-body tr:hover{background:var(--paper)}
+.article-title{font-size:25px;font-weight:700;margin-bottom:24px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body,.a-body{font-size:15px;color:#3a3a3a;line-height:1.85}
+.article-body h2,.a-body h2{font-size:21px;margin-top:36px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3,.a-body h3{font-size:17px;margin-top:26px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p,.a-body p{margin-bottom:14px}
+.article-body strong,.a-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol,.a-body ul,.a-body ol{margin:10px 0 16px 22px}
+.article-body li,.a-body li{margin-bottom:8px}
+.article-body blockquote,.a-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table,.a-body table,.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th,.a-body th,.data-table th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td,.a-body td,.data-table td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover,.a-body tr:hover,.data-table tr:hover{background:var(--paper)}
+.section-title{font-size:21px;margin:36px 0 16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px;line-height:1.4}
+.sub-title{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.a-title{font-size:19px;font-weight:700;margin:18px 0 8px;color:var(--ink);font-family:"Noto Serif SC",serif;line-height:1.4}
+.a-source{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.highlight-green,.highlight-red{color:var(--accent);font-weight:600}
 .note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
 .timeline-log{margin:18px 0}
 .log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
@@ -40,7 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .text-center{text-align:center}
 .highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
 .footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
-@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
+@media(max-width:680px){.article-card{padding:24px 18px}.article-title{font-size:22px}.article-body h2,.a-body h2,.section-title{font-size:19px}.article-container,.container{margin:32px auto}}</style>
 </head>
 <body>
     <div class="container">
@@ -56,12 +67,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
             <a href="泡泡玛特2025年全年业绩电话会_2026-03-25_文字记录_2026-07-04.html">2025年业绩会</a>
         </div>
 
-        <h1>📊 泡泡玛特2024年全年业绩电话会实录</h1>
-        <p class="meta">📅 会议时间：2025年3月26日（讨论2024年全年业绩） | 🎙️ 来源：雪球文章（xueqiu.com/1863122099/391514739）</p>
+        <h1>泡泡玛特2024年全年业绩电话会实录</h1>
+        <p class="meta">会议时间：2025年3月26日（讨论2024年全年业绩） | 🎙️ 来源：雪球文章（xueqiu.com/1863122099/391514739）</p>
         <p class="meta">🏛️ 参会管理层：王宁（董事会主席兼行政总裁）、司德（首席运营官）、杨镜冰（首席财务官）、文德一（海外业务总裁）、褚音（中国内地业务总裁）、胡健（乐园业务总裁）</p>
 
         <div class="highlight">
-            <strong>📊 核心结论（2024年全年）：</strong><br>
+            <strong>核心结论（2024年全年）：</strong><br>
             2024年泡泡玛特实现收入约130.4亿元，同比增长约106.9%；经调整净利润约34.0亿元，同比增长约185.4%。<br>
             这是泡泡玛特<strong>首次突破百亿营收</strong>，标志着公司进入"新量级"。<br>
             业绩指引：2025年收入增长不低于50%，海外增长不低于100%（实际2025年3月王宁表示"有信心实现超过50%的同比增长，全年业绩突破200亿元"）。
@@ -147,7 +158,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
         <p>2024年，泡泡玛特共有<strong>13个IP收入过亿</strong>，IP矩阵进一步丰富。</p>
 
-        <h3>📊 核心IP表现</h3>
+        <h3>核心IP表现</h3>
         <table class="data-table">
             <tr>
                 <th>IP名称</th>
@@ -192,7 +203,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
             通过丰富多元的产品品类设计，以及乐园明星朋友互动表演等呈现形式，把THE MONSTERS从静态的潮玩手办，延伸拓展为能够搭配装扮的毛绒挂件，以及可互动的伙伴。THE MONSTERS的形象变得更加生动鲜活，其个性也越发丰满立体，强化了与粉丝的情感连接，加深了粉丝黏性。"
         </div>
 
-        <h3>📊 品类突破：毛绒同比增长超1200%</h3>
+        <h3>品类突破：毛绒同比增长超1200%</h3>
         <table class="data-table">
             <tr>
                 <th>品类</th>
@@ -305,7 +316,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
         <p>2024年，泡泡玛特中国内地业务实现收入约<strong>79.7亿元</strong>，同比增长<strong>52.3%</strong>。</p>
 
-        <h3>📊 渠道表现</h3>
+        <h3>渠道表现</h3>
         <table class="data-table">
             <tr>
                 <th>渠道</th>
@@ -362,7 +373,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
         <p>2024年，泡泡玛特围绕"以IP为核心的集团化"战略，持续推进新业务布局。</p>
 
-        <h3>📊 新业务进展</h3>
+        <h3>新业务进展</h3>
         <table class="data-table">
             <tr>
                 <th>业务</th>
@@ -417,7 +428,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <p>这是整场电话会最重要的部分 —— 管理层给出了<strong>2025年的明确业绩指引</strong>。</p>
 
         <div class="highlight">
-            <strong>📊 2025年业绩指引（2025年3月26日给出）：</strong><br>
+            <strong>2025年业绩指引（2025年3月26日给出）：</strong><br>
             1. <strong>集团收入增长</strong>：有信心实现超过50%的同比增长，全年业绩突破200亿元<br>
             2. <strong>海外收入增长</strong>：超过100%的同比增长，海外市场的业绩突破100亿元<br>
             3. <strong>毛利率</strong>：预计会有一定提升（海外收入占比将进一步提升 + 供应链成本控制）<br>
@@ -444,7 +455,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <h2>七、投资启示：从2024年全年业绩电话会中，你能读到什么？</h2>
 
         <div class="investor-note">
-            <strong>📊 启示1：如何评估"起飞期"的可持续性？</strong><br>
+            <strong>启示1：如何评估"起飞期"的可持续性？</strong><br>
             2024年，泡泡玛特收入增速106.9%，净利润增速187.3% —— 这是"起飞期"的典型特征。<br>
             <strong>你需要判断</strong>：这是"一次性爆发"（不可持续），还是"新量级"的开始（可持续）？<br><br>
             <strong>判断依据</strong>：<br>
@@ -454,7 +465,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="investor-note">
-            <strong>📊 启示2：如何评估"海外业务"的投资价值？</strong><br>
+            <strong>启示2：如何评估"海外业务"的投资价值？</strong><br>
             2024年，海外业务收入占比从16.9%提升到39.3%，增速375.2% —— 海外市场已经成为"主增长曲线"。<br><br>
             <strong>评估"海外业务"的投资价值，可以看三个指标</strong>：<br>
             1. <strong>单店增长 vs 开店增长</strong>：2024年单店增长160% vs 门店增加约50-60家 → 说明是靠"同店增长"驱动，可持续 ✅<br>
@@ -464,7 +475,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         </div>
 
         <div class="investor-note">
-            <strong>📊 启示3：新业务（乐园、游戏、影视、积木、珠宝）的投资逻辑是什么？</strong><br>
+            <strong>启示3：新业务（乐园、游戏、影视、积木、珠宝）的投资逻辑是什么？</strong><br>
             2024年，新业务还只是"播种"（收入占比很低），但已经开始"验证商业模式"。<br><br>
             <strong>新业务的投资逻辑</strong>：<br>
             - 不是"短期利润贡献"（2024年还做不到）<br>
@@ -500,8 +511,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
         <hr style="margin:30px 0; border:none; border-top:1px solid #ddd;">
 
         <p style="color:#888; font-size:13px; text-align:center;">
-            📅 文章创建：2026年7月4日 | 📝 数据来源：雪球文章（xueqiu.com/1863122099/391514739）<br>
-            💡 投资建议：本文仅为信息整理，不构成投资建议。投资有风险，决策需谨慎。
+            文章创建：2026年7月4日 | 数据来源：雪球文章（xueqiu.com/1863122099/391514739）<br>
+            投资建议：本文仅为信息整理，不构成投资建议。投资有风险，决策需谨慎。
         </p>
     </div>
 
