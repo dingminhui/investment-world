@@ -6,83 +6,43 @@
     <title>中国神华每周追踪 2026-07-01</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin:0; padding:0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f7f7f7; color: #333; line-height: 1.8; }
-        .header { background: linear-gradient(135deg, #07C160 0%, #06AD56 100%); color: white; padding: 28px 20px 22px; text-align: center; }
-        .header h1 { font-family: "Noto Serif SC", serif; font-size: 22px; font-weight: 700; letter-spacing: 2px; margin: 0; }
-        .header p { font-size: 13px; opacity: 0.85; margin: 6px 0 0; }
-        .back-link { display: inline-block; margin: 18px 0 0; color: white; opacity: 0.9; text-decoration: none; font-size: 14px; }
-        .back-link:hover { opacity: 1; text-decoration: underline; }
-        .container { max-width: 800px; margin: 0 auto; padding: 30px 20px 60px; }
-        .meta { font-size: 13px; color: #999; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e8e8e8; }
-        .meta span { margin-right: 16px; }
-        .section-title {
-            font-family: "Noto Serif SC", serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #222;
-            margin: 36px 0 16px;
-            padding-left: 12px;
-            border-left: 4px solid #07C160;
-        }
-        .sub-title { font-size: 17px; font-weight: 600; color: #07C160; margin: 24px 0 10px; }
-        p { margin-bottom: 14px; font-size: 15px; color: #444; }
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-            font-size: 14px;
-        }
-        .data-table th {
-            background: #07C160;
-            color: white;
-            padding: 10px 12px;
-            text-align: center;
-            font-weight: 600;
-        }
-        .data-table td {
-            padding: 9px 12px;
-            border-bottom: 1px solid #f0f0f0;
-            text-align: center;
-        }
-        .data-table tr:last-child td { border-bottom: none; }
-        .data-table tr:nth-child(even) td { background: #f9f9f9; }
-        .news-item {
-            background: white;
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-            border: 1px solid #eee;
-            border-left: 4px solid #07C160;
-        }
-        .news-date { font-size: 13px; color: #07C160; font-weight: 600; margin-bottom: 6px; }
-        .news-title { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 8px; font-family: "Noto Serif SC", serif; }
-        .news-body { font-size: 14.5px; color: #444; line-height: 1.9; }
-        .tag { display: inline-block; background: #e8f8ef; color: #07C160; padding: 2px 9px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 6px; }
-        .highlight-green { color: #07C160; font-weight: 600; }
-        .highlight-red { color: #e74c3c; font-weight: 600; }
-        .discuss-box {
-            background: #f0faf4;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 28px 0;
-            border: 1px dashed #07C160;
-        }
-        .discuss-box .title { font-size: 16px; font-weight: 700; color: #07C160; margin-bottom: 12px; font-family: "Noto Serif SC", serif; }
-        .discuss-box ul { margin: 0; padding-left: 20px; }
-        .discuss-box li { font-size: 14.5px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-        @media (max-width: 768px) {
-            .container { padding: 20px 14px 40px; }
-            .header h1 { font-size: 19px; }
-            .data-table { font-size: 13px; }
-        }
-    </style>
+    <style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#4a4a4a}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased}
+.header{background:var(--paper);color:var(--ink);padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
+.header a{display:inline-block;color:var(--ink-faint);text-decoration:none;font-size:13px;letter-spacing:.5px;margin-bottom:14px}
+.header a:hover{color:var(--accent)}
+.header h1{font-family:"Noto Serif SC",serif;font-size:25px;font-weight:700;letter-spacing:1px;color:var(--ink);margin:0 0 6px}
+.header .subtitle{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
+.header::after{content:"";display:block;width:40px;height:2px;background:var(--accent);margin:18px auto 0}
+.article-container{max-width:760px;margin:48px auto;padding:0 20px}
+.article-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:48px 44px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.article-meta{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:13px;color:var(--ink-faint);flex-wrap:wrap}
+.article-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:2px 9px;border-radius:3px;font-size:12px;font-weight:500;opacity:.85}
+.article-title{font-size:25px;font-weight:700;margin-bottom:30px;color:var(--ink);line-height:1.45;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h2{font-size:21px;margin-top:42px;margin-bottom:16px;color:var(--ink);font-weight:700;border-left:3px solid var(--accent);padding-left:14px;font-family:"Noto Serif SC",serif;letter-spacing:.5px}
+.article-body h3{font-size:17px;margin-top:28px;margin-bottom:12px;color:var(--ink);font-weight:600}
+.article-body p{margin-bottom:14px;color:#3a3a3a}
+.article-body strong{color:var(--accent);font-weight:600}
+.article-body ul,.article-body ol{margin:10px 0 16px 22px}
+.article-body li{margin-bottom:8px}
+.article-body blockquote{margin:20px 0;padding:16px 20px;background:var(--paper);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:14.5px}
+.article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.article-body th{background:var(--paper);color:var(--ink);padding:11px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent)}
+.article-body td{border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:top;color:#3a3a3a}
+.article-body tr:hover{background:var(--paper)}
+.note{margin:20px 0;padding:16px 20px;background:#fdf8ef;border-left:3px solid #c89b3a;border-radius:0 6px 6px 0;font-size:14px;color:#5a4720}
+.timeline-log{margin:18px 0}
+.log-item{border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;background:var(--paper)}
+.log-item .log-date{font-weight:600;color:var(--accent);font-size:13px;margin-bottom:6px;letter-spacing:.5px}
+.log-item .log-src{font-size:12px;color:var(--ink-faint);margin-top:6px}
+.back-link{display:inline-block;margin:36px auto 0;padding:9px 22px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:4px;text-decoration:none;font-size:14px;font-weight:500;transition:all .25s}
+.back-link:hover{background:var(--accent);color:#fff}
+.text-center{text-align:center}
+.highlight-box{background:var(--paper);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
+.footer-note{margin-top:28px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px;letter-spacing:.5px}
+@media(max-width:680px){.article-card{padding:28px 20px}.article-title{font-size:22px}.article-body h2{font-size:19px}.article-container{margin:32px auto}}</style>
 </head>
 <body>
     <div class="header">

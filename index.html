@@ -7,275 +7,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f7f7f7; color: #333; line-height: 1.6; }
-
-        /* 顶部 */
-        .header {
-            background: linear-gradient(135deg, #07C160 0%, #06AD56 100%);
-            color: white;
-            padding: 30px 20px 24px;
-            text-align: center;
-        }
-        .header-top {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .header-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.6);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .header h1 {
-            font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", serif;
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-        .header p {
-            font-size: 13px;
-            opacity: 0.85;
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        /* 导航 */
-        .nav {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #e8e8e8;
-        }
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 0;
-        }
-        .nav-btn {
-            padding: 14px 24px;
-            border: none;
-            background: white;
-            cursor: pointer;
-            font-size: 15px;
-            transition: all 0.3s;
-            color: #666;
-            border-bottom: 3px solid transparent;
-            font-weight: 400;
-        }
-        .nav-btn:hover { color: #07C160; background: #f9f9f9; }
-        .nav-btn.active { color: #07C160; border-bottom-color: #07C160; font-weight: 600; }
-
-        /* 主容器 */
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
-
-        /* 视图 */
-        .view { display: none; }
-        .view.active { display: block; }
-
-        /* ===== 区域标题 ===== */
-        .area-title {
-            font-family: "Noto Serif SC", serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #222;
-            margin: 14px 0 20px;
-            padding-left: 2px;
-            letter-spacing: 1px;
-        }
-
-        /* ===== 首页网格：2列 ===== */
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            max-width: 1100px;
-            margin: 0 auto 40px;
-        }
-
-        /* 卡片通用 */
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 24px 22px 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e8e8e8;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.3s, transform 0.2s;
-            min-height: 200px;
-        }
-        .card:hover { box-shadow: 0 4px 20px rgba(7,193,96,0.10); transform: translateY(-2px); }
-
-        /* 公司卡片 */
-        .card-company .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        .card-company .stock-badge {
-            background: #e8f8ef;
-            color: #07C160;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 6px;
-            letter-spacing: 0.5px;
-        }
-        .card-company .company-name {
-            font-size: 19px;
-            font-weight: 700;
-            color: #222;
-            font-family: "Noto Serif SC", serif;
-        }
-        .card-company .article-item {
-            display: block;
-            padding: 9px 0;
-            text-decoration: none;
-            color: #444;
-            font-size: 15px;
-            border-bottom: 1px solid #f2f2f2;
-            transition: color 0.2s;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .card-company .article-item:last-child { border-bottom: none; }
-        .card-company .article-item:hover { color: #07C160; }
-        .card-company .article-date { color: #bbb; font-size: 12.5px; margin-right: 5px; }
-        .card-company .empty-text { color: #ccc; font-size: 14px; padding: 12px 0; }
-
-        /* 公司卡片个性配色 — 浅底色，高级感 */
-        .card-company.company-tencent     { background: #f0faf4; border-color: #cce8d8; }
-        .card-company.company-moutai      { background: #faf8f2; border-color: #e8e2d4; }
-        .card-company.company-luzhou      { background: #f5f4f0; border-color: #ddd9ce; }
-        .card-company.company-focusmedia  { background: #f0f4fa; border-color: #d4dff0; }
-        .card-company.company-popmart     { background: #f5f0fa; border-color: #e0d4f0; }
-        .card-company.company-meituan     { background: #faf8f0; border-color: #ebe5d0; }
-        .card-company.company-xiaomi      { background: #faf5f0; border-color: #ebe0d0; }
-        .card-company.company-sf          { background: #f4f4f5; border-color: #dddde0; }
-        .card-company.company-zijin       { background: #faf7f0; border-color: #e8e0d0; }
-        .card-company.company-midea       { background: #f0f7fa; border-color: #d4e5f0; }
-        .card-company.company-miniso      { background: #faf0f2; border-color: #e8d4d8; }
-        .card-company.company-dongeejiao  { background: #f7f3f0; border-color: #e0d8ce; }
-        .card-company.company-shenhua     { background: #f2f3f4; border-color: #d8dade; }
-
-        /* 板块卡片（非公司） */
-        .card-section .section-icon { font-size: 26px; margin-bottom: 10px; }
-        .card-section .section-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: #222;
-            font-family: "Noto Serif SC", serif;
-            margin-bottom: 6px;
-        }
-        .card-section .section-desc { font-size: 14px; color: #888; margin-bottom: 14px; line-height: 1.6; }
-        .card-section .section-articles { flex: 1; }
-        .card-section .section-articles .article-link {
-            display: block;
-            padding: 8px 0;
-            text-decoration: none;
-            color: #444;
-            font-size: 15px;
-            border-bottom: 1px solid #f2f2f2;
-            transition: color 0.2s;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .card-section .section-articles .article-link:last-child { border-bottom: none; }
-        .card-section .section-articles .article-link:hover { color: #07C160; }
-        .card-section .section-articles .article-date { color: #bbb; font-size: 12.5px; margin-right: 5px; }
-        .card-section .section-articles .empty { color: #ccc; font-size: 14px; padding: 12px 0; }
-        .card-section .card-footer {
-            margin-top: auto;
-            padding-top: 14px;
-        }
-        .card-section .card-footer a {
-            font-size: 14px;
-            color: #07C160;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .card-section .card-footer a:hover { opacity: 0.7; }
-
-        /* ===== 按时间浏览 ===== */
-        .timeline-container { max-width: 800px; margin: 0 auto; }
-        .timeline-header {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #222;
-            font-family: "Noto Serif SC", serif;
-        }
-        .timeline { position: relative; padding-left: 28px; }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px; top: 0; bottom: 0;
-            width: 2px;
-            background: #d0efdd;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 22px;
-            background: white;
-            border-radius: 10px;
-            padding: 18px 20px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            border: 1px solid #eee;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -24px;
-            top: 22px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #07C160;
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px #07C160;
-        }
-        .tl-date { font-size: 13px; color: #999; margin-bottom: 6px; }
-        .tl-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: #333; }
-        .tl-summary { font-size: 14px; color: #666; line-height: 1.6; }
-        .tl-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-        .tl-tag {
-            background: #e8f8ef;
-            color: #07C160;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .tl-link {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #07C160;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .tl-link:hover { text-decoration: underline; }
-
-        @media (max-width: 768px) {
-            .grid-2col { grid-template-columns: 1fr; }
-            .header h1 { font-size: 22px; }
-            .header { padding: 24px 16px 20px; }
-        }
-    </style>
+    <style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#faf9f7;--card:#ffffff;--ink:#2c2c2c;--ink-soft:#6b6b6b;--ink-faint:#9a9a9a;--line:#e8e4dd;--accent:#2d5e3e}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+.header{background:var(--paper);color:var(--ink);padding:44px 20px 30px;text-align:center;border-bottom:1px solid var(--line)}
+.header-top{display:flex;flex-direction:column;align-items:center;gap:12px}
+.header-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.header h1{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:700;letter-spacing:3px;color:var(--ink);margin:0}
+.header p{font-size:12.5px;color:var(--ink-soft);letter-spacing:2px;margin:0}
+.header::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin:16px auto 0}
+.nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1080px;margin:0 auto;display:flex;gap:0}
+.nav-btn{padding:14px 22px;border:none;background:transparent;cursor:pointer;font-size:14px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;letter-spacing:1px;transition:all .25s}
+.nav-btn:hover{color:var(--ink)}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.container{max-width:1080px;margin:0 auto;padding:40px 20px 20px}
+.view{display:none}
+.view.active{display:block}
+.area-title{font-family:"Noto Serif SC",serif;font-size:20px;font-weight:700;color:var(--ink);margin:28px 0 22px;letter-spacing:2px;display:flex;align-items:center;gap:14px}
+.area-title::before{content:"";width:4px;height:20px;background:var(--accent);border-radius:2px}
+.grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1040px;margin:0 auto 36px}
+.card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:24px 24px 20px;display:flex;flex-direction:column;transition:box-shadow .25s,transform .2s,border-color .25s;min-height:180px}
+.card:hover{box-shadow:0 4px 18px rgba(0,0,0,0.06);transform:translateY(-1px);border-color:#dcd6cc}
+.card-company .card-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.card-company .stock-badge{background:transparent;color:var(--ink-faint);font-size:11px;font-weight:500;padding:2px 7px;border:1px solid var(--line);border-radius:3px;letter-spacing:.5px}
+.card-company .company-name{font-size:18px;font-weight:700;color:var(--ink);font-family:"Noto Serif SC",serif;letter-spacing:1px}
+.card-company .article-item{display:block;padding:9px 0;text-decoration:none;color:#444;font-size:14.5px;border-bottom:1px solid var(--line);transition:color .2s,padding-left .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-company .article-item:last-child{border-bottom:none}
+.card-company .article-item:hover{color:var(--accent);padding-left:4px}
+.card-company .article-date{color:var(--ink-faint);font-size:12px;margin-right:5px;font-variant-numeric:tabular-nums}
+.card-company .empty-text{color:var(--ink-faint);font-size:13.5px;padding:12px 0}
+.card-section .section-name{font-size:17px;font-weight:700;color:var(--ink);font-family:"Noto Serif SC",serif;margin-bottom:6px;letter-spacing:1px}
+.card-section .section-desc{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;line-height:1.6}
+.card-section .section-articles{flex:1}
+.card-section .section-articles .article-link{display:block;padding:8px 0;text-decoration:none;color:#444;font-size:14.5px;border-bottom:1px solid var(--line);transition:color .2s,padding-left .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-section .section-articles .article-link:last-child{border-bottom:none}
+.card-section .section-articles .article-link:hover{color:var(--accent);padding-left:4px}
+.card-section .section-articles .article-date{color:var(--ink-faint);font-size:12px;margin-right:5px;font-variant-numeric:tabular-nums}
+.card-section .section-articles .empty{color:var(--ink-faint);font-size:13.5px;padding:12px 0}
+.card-section .card-footer{margin-top:auto;padding-top:14px}
+.card-section .card-footer a{font-size:13px;color:var(--accent);text-decoration:none;font-weight:500}
+.card-section .card-footer a:hover{opacity:.7}
+.timeline-container{max-width:760px;margin:0 auto}
+.timeline-header{font-size:18px;font-weight:700;margin-bottom:28px;color:var(--ink);font-family:"Noto Serif SC",serif;letter-spacing:1px}
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:var(--line)}
+.timeline-item{position:relative;margin-bottom:20px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 22px;transition:box-shadow .2s}
+.timeline-item:hover{box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.timeline-item::before{content:"";position:absolute;left:-25px;top:24px;width:7px;height:7px;background:var(--paper);border:1.5px solid var(--accent);border-radius:2px}
+.tl-date{font-size:12px;color:var(--ink-faint);margin-bottom:6px;letter-spacing:1px;font-variant-numeric:tabular-nums}
+.tl-title{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--ink);line-height:1.5}
+.tl-summary{font-size:13.5px;color:var(--ink-soft);line-height:1.75}
+.tl-tags{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.tl-tag{background:transparent;color:var(--accent);border:1px solid var(--line);padding:2px 8px;border-radius:3px;font-size:11.5px;font-weight:500}
+.tl-link{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);text-decoration:none;font-weight:500}
+.tl-link:hover{opacity:.7}
+#visitor-counter{max-width:1040px;margin:30px auto 0;padding:18px 0;text-align:center;color:var(--ink-faint);font-size:12.5px;border-top:1px solid var(--line);letter-spacing:1px}
+@media(max-width:768px){.grid-2col{grid-template-columns:1fr}.header h1{font-size:22px;letter-spacing:2px}.header{padding:34px 16px 24px}.container{padding:28px 14px 16px}}</style>
 </head>
 <body>
     <div class="header">
@@ -288,8 +76,8 @@
 
     <div class="nav">
         <div class="nav-inner">
-            <button class="nav-btn active" onclick="showView('by-section')">🏠 首页</button>
-            <button class="nav-btn" onclick="showView('by-time')">📅 按时间浏览</button>
+            <button class="nav-btn active" onclick="showView('by-section')">首页</button>
+            <button class="nav-btn" onclick="showView('by-time')">按时间浏览</button>
         </div>
     </div>
 
@@ -298,11 +86,11 @@
         <div id="view-by-section" class="view active">
 
             <!-- 区域：持仓公司 -->
-            <div class="area-title">📊 持仓公司研究</div>
+            <div class="area-title">持仓公司研究</div>
             <div class="grid-2col" style="margin-bottom: 16px;">
 
                 <!-- 腾讯控股 -->
-                <div class="card card-company company-tencent">
+                <div class="card card-company company-tencent" style="--accent:#2d5e3e">
                     <div class="card-header">
                         <span class="company-name">腾讯控股</span>
                         <span class="stock-badge">00700.HK</span>
@@ -321,7 +109,7 @@
                 </div>
 
                 <!-- 贵州茅台 -->
-                <div class="card card-company company-moutai">
+                <div class="card card-company company-moutai" style="--accent:#9a7b3a">
                     <div class="card-header">
                         <span class="company-name">贵州茅台</span>
                         <span class="stock-badge">600519.SH</span>
@@ -332,7 +120,7 @@
                 </div>
 
                 <!-- 泸州老窖 -->
-                <div class="card card-company company-luzhou">
+                <div class="card card-company company-luzhou" style="--accent:#7a3b3b">
                     <div class="card-header">
                         <span class="company-name">泸州老窖</span>
                         <span class="stock-badge">000568.SZ</span>
@@ -354,7 +142,7 @@
                 </div>
 
                 <!-- 分众传媒 -->
-                <div class="card card-company company-focusmedia">
+                <div class="card card-company company-focusmedia" style="--accent:#3a5a7a">
                     <div class="card-header">
                         <span class="company-name">分众传媒</span>
                         <span class="stock-badge">002027.SZ</span>
@@ -367,14 +155,14 @@
                 </div>
 
                 <!-- 泡泡玛特 -->
-                <div class="card card-company company-popmart">
+                <div class="card card-company company-popmart" style="--accent:#6a3b7a">
                     <div class="card-header">
                         <span class="company-name">泡泡玛特</span>
                         <span class="stock-badge">09992.HK</span>
                     </div>
                     <div class="article-list">
-                        <a href="articles/泡泡玛特_Q2业绩预告检查_2026-07-10.html" target="_blank" class="article-item" style="font-weight:700; color:#a23bce; border-bottom:2px solid #e8d4f0;">
-                            <span class="article-date">[2026-07-10]</span>🔴 Q2业绩预告检查：德银预测+1.6%，待7/15-19验证
+                        <a href="articles/泡泡玛特_Q2业绩预告检查_2026-07-10.html" target="_blank" class="article-item">
+                            <span class="article-date">[2026-07-10]</span>Q2业绩预告检查：德银预测+1.6%，待7/15-19验证
                         </a>
                         <a href="articles/泡泡玛特_三费趋势分析_2022-2025_2026-07-17.html" target="_blank" class="article-item">
                             <span class="article-date">[2026-07-17]</span>泡泡玛特三费趋势分析（2022-2025）：销售费用率 31.8%→21.8%，费用管控 A 级
@@ -419,7 +207,7 @@
                 </div>
 
                 <!-- 美团 -->
-                <div class="card card-company company-meituan">
+                <div class="card card-company company-meituan" style="--accent:#c2742a">
                     <div class="card-header">
                         <span class="company-name">美团</span>
                         <span class="stock-badge">03690.HK</span>
@@ -435,7 +223,7 @@
                 </div>
 
                 <!-- 小米集团 -->
-                <div class="card card-company company-xiaomi">
+                <div class="card card-company company-xiaomi" style="--accent:#c2582a">
                     <div class="card-header">
                         <span class="company-name">小米集团</span>
                         <span class="stock-badge">01810.HK</span>
@@ -451,7 +239,7 @@
                 </div>
 
                 <!-- 顺丰控股 -->
-                <div class="card card-company company-sf">
+                <div class="card card-company company-sf" style="--accent:#3a3a4a">
                     <div class="card-header">
                         <span class="company-name">顺丰控股</span>
                         <span class="stock-badge">002352.SZ</span>
@@ -464,7 +252,7 @@
                 </div>
 
                 <!-- 紫金矿业 -->
-                <div class="card card-company company-zijin">
+                <div class="card card-company company-zijin" style="--accent:#8a6a3a">
                     <div class="card-header">
                         <span class="company-name">紫金矿业</span>
                         <span class="stock-badge">601899.SH</span>
@@ -486,7 +274,7 @@
                 </div>
 
                 <!-- 美的集团 -->
-                <div class="card card-company company-midea">
+                <div class="card card-company company-midea" style="--accent:#3a5a7a">
                     <div class="card-header">
                         <span class="company-name">美的集团</span>
                         <span class="stock-badge">000333.SZ</span>
@@ -499,7 +287,7 @@
                 </div>
 
                 <!-- 名创优品 -->
-                <div class="card card-company company-miniso">
+                <div class="card card-company company-miniso" style="--accent:#a04545">
                     <div class="card-header">
                         <span class="company-name">名创优品</span>
                         <span class="stock-badge">MNSO / 09896.HK</span>
@@ -515,7 +303,7 @@
                 </div>
 
                 <!-- 东阿阿胶 -->
-                <div class="card card-company company-dongeejiao">
+                <div class="card card-company company-dongeejiao" style="--accent:#7a4a3a">
                     <div class="card-header">
                         <span class="company-name">东阿阿胶</span>
                         <span class="stock-badge">000423.SZ</span>
@@ -531,7 +319,7 @@
                 </div>
 
                 <!-- 中国神华 -->
-                <div class="card card-company company-shenhua">
+                <div class="card card-company company-shenhua" style="--accent:#4a4a4a">
                     <div class="card-header">
                         <span class="company-name">中国神华</span>
                         <span class="stock-badge">601088.SH</span>
@@ -549,12 +337,11 @@
             </div>
 
             <!-- 区域：思考与理念 -->
-            <div class="area-title">💭 投资思考与理念</div>
+            <div class="area-title">投资思考与理念</div>
             <div class="grid-2col">
 
                 <!-- 投资心路历程 -->
                 <div class="card card-section">
-                    <div class="section-icon">💭</div>
                     <div class="section-name">投资心路历程</div>
                     <div class="section-desc">持仓下跌时的情绪管理、投资决策的心路变化</div>
                     <div class="section-articles">
@@ -567,7 +354,6 @@
 
                 <!-- 价值投资理念 -->
                 <div class="card card-section">
-                    <div class="section-icon">🧠</div>
                     <div class="section-name">价值投资理念</div>
                     <div class="section-desc">巴菲特、芒格投资思想的学习与思考</div>
                     <div class="section-articles">
@@ -589,7 +375,6 @@
 
                 <!-- 投资者文章解读 -->
                 <div class="card card-section">
-                    <div class="section-icon">📚</div>
                     <div class="section-name">投资者文章解读</div>
                     <div class="section-desc">老唐、段永平等优秀投资者的文章笔记</div>
                     <div class="section-articles">
@@ -605,7 +390,6 @@
 
                 <!-- 行业趋势分析 -->
                 <div class="card card-section">
-                    <div class="section-icon">🌍</div>
                     <div class="section-name">行业趋势分析</div>
                     <div class="section-desc">消费、科技、能源等行业的长期趋势研究</div>
                     <div class="section-articles">
@@ -620,7 +404,7 @@
         <!-- 按时间浏览 -->
         <div id="view-by-time" class="view">
             <div class="timeline-container">
-                <div class="timeline-header">📅 所有内容（按时间倒序）</div>
+                <div class="timeline-header">所有内容（按时间倒序）</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="tl-date">2026-07-20</div>
@@ -802,7 +586,7 @@
 
     <!-- 公开访客计数器（GoatCounter，全站累计） -->
     <div id="visitor-counter" style="text-align:center;margin:30px 0 14px;padding:10px;color:#7a8a7a;font-size:13px;background:#f6faf6;border-top:1px solid #e8f0e8;border-bottom:1px solid #e8f0e8;">
-        📊 全站累计访问 <b id="vc-views" style="color:#2e7d32;">…</b> 次 · 独立访客 <b id="vc-uniq" style="color:#2e7d32;">…</b> 人
+        全站累计访问 <b id="vc-views" style="color:#2e7d32;">…</b> 次 · 独立访客 <b id="vc-uniq" style="color:#2e7d32;">…</b> 人
         <div style="margin-top:4px;font-size:11px;color:#aab;">数据来自 GoatCounter · 约每4小时刷新一次</div>
     </div>
     <script>
